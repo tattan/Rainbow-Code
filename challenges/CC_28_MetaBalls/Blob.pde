@@ -15,43 +15,43 @@ class Blob {
     }
     
     void update() {
-      pos.add(vel);
+    pos.add(vel);
 
-      // directional velocity changes
-      float mouseDist = dist(pos.x, pos.y, mouseX, mouseY);
-      if (mouseDist < 200) {
-        // the color allows you to see which blobs you are affecting if you call the show function
+    // directional velocity changes
+    float mouseDist = dist(pos.x, pos.y, mouseX, mouseY);
+    if (mouseDist < 200) {
+    // the color allows you to see which blobs you are affecting if you call the show function
         c = color(0,0,255);
         if (mouseX > pos.x && vel.x > 0) {
-          vel.x *= -1;
+        vel.x *= -1;
         } else if (mouseX < pos.x && vel.x <0){
-          vel.x *= -1;
+            vel.x *= -1;
         }
         if (mouseY > pos.y && vel.y > 0) {
-          vel.y *= -1;
+            vel.y *= -1;
         } else if (mouseY < pos.y && vel.y < 0){
-          vel.y *= -1;
+            vel.y *= -1;
         }
-      } else {
+    } else {
         c = color(0,255,0);
-      }
-      // to keep the mouse from chasing the blobs off the screen
-      if (pos.x > width) {
+    }
+    // to keep the mouse from chasing the blobs off the screen
+    if (pos.x > width) {
         vel.x *= -1;
         pos.x = width;
-      }
-      if (pos.x < 0) {
+    }
+    if (pos.x < 0) {
         vel.x *= -1;
         pos.x = 0;
-      }
-      if (pos.y > height) {
+    }
+    if (pos.y > height) {
         vel.y *= -1;
         pos.y = height;
-      }
-      if (pos.y < 0) {
+    }
+    if (pos.y < 0) {
         vel.y *= -1;
         pos.y = 0;
-      }
+    }
     }
     
     void show() {
