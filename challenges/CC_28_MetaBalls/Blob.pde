@@ -2,19 +2,19 @@
 // mouse reactive sketch
 
 class Blob {
-    PVector pos;
-    float r;
-    PVector vel;
-    color c;
+  PVector pos;
+  float r;
+  PVector vel;
+  color c;
     
-    Blob(float x, float y) {
-      pos = new PVector(x,y);
-      vel = new PVector(random(1), random(1));
-      vel.mult(random(5,9));
-      r = 30;
-    }
+  Blob(float x, float y) {
+    pos = new PVector(x,y);
+    vel = new PVector(random(1), random(1));
+    vel.mult(random(5,9));
+    r = 30;
+  }
     
-    void update() {
+  void update() {
     pos.add(vel);
 
     // directional velocity changes
@@ -33,26 +33,26 @@ class Blob {
             vel.y *= -1;
         }
     } else {
-        c = color(0,255,0);
+      c = color(0,255,0);
     }
     // to keep the mouse from chasing the blobs off the screen
     if (pos.x > width) {
-        vel.x *= -1;
-        pos.x = width;
+      vel.x *= -1;
+      pos.x = width;
     }
     if (pos.x < 0) {
-        vel.x *= -1;
-        pos.x = 0;
+      vel.x *= -1;
+      pos.x = 0;
     }
     if (pos.y > height) {
-        vel.y *= -1;
-        pos.y = height;
+      vel.y *= -1;
+      pos.y = height;
     }
     if (pos.y < 0) {
-        vel.y *= -1;
-        pos.y = 0;
+      vel.y *= -1;
+      pos.y = 0;
     }
-    }
+  }
     
     void show() {
      noFill();
