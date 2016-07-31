@@ -1,20 +1,16 @@
-// Daniel Shiffman
-// http://codingrainbow.com
-// http://patreon.com/codingrainbow
-// Code for: https://youtu.be/ccYLb7cLB1I
+// Blob b;
+Blob[] blobs = new Blob[7];
 
-Blob[] blobs = new Blob[10];
 
 void setup() {
-  size(640, 360);
-  colorMode(HSB);
-  for (int i = 0; i < blobs.length; i++) {
-    blobs[i] = new Blob(random(width), random(height));
-  }
+ size(640, 480); 
+ for (int i = 0; i < blobs.length; i++) {
+   blobs[i] = new Blob(random(width), random(height));
+ }
 }
 
 void draw() {
-  background(51);
+  background(0);
 
   loadPixels();
   for (int x = 0; x < width; x++) {
@@ -23,15 +19,15 @@ void draw() {
       float sum = 0;
       for (Blob b : blobs) {
         float d = dist(x, y, b.pos.x, b.pos.y);
-        sum += 10 * b.r / d;
+        sum += 200 * b.r / d;
       }
-      pixels[index] = color(sum, 255, 255);
+
+      pixels[index] = color(sum);
     }
   }
 
   updatePixels();
-
-  for (Blob b : blobs) {
+  for (Blob b: blobs) {
     b.update();
     //b.show();
   }
